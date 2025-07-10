@@ -20,7 +20,7 @@ function Home() {
             </section>
 
             <section>
-              <img className="w-[50vh] h-auto" src="https://ik.imagekit.io/gqta2uhtht/um-delicioso-hamburguer-no-estudio-removebg-preview%201%20(1).png?updatedAt=1752104960964" alt="amburg" />
+              <img className="w-[50vh] h-auto  animate-float-custom" src="https://ik.imagekit.io/gqta2uhtht/um-delicioso-hamburguer-no-estudio-removebg-preview%201%20(1).png?updatedAt=1752104960964" alt="amburg" />
             </section>
           </div>
         </article>
