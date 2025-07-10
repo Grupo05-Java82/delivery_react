@@ -60,7 +60,7 @@ function Login() {
 	}
 
 	return (
-		<div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
+		<div className="grid grid-cols-1 bg-[#FEF8EA] lg:grid-cols-2 h-screen place-items-center font-bold ">
 			<form
 				className="flex justify-center items-center flex-col w-1/2 gap-4"
 				onSubmit={login}
@@ -77,7 +77,7 @@ function Login() {
 						id="usuario"
 						name="usuario"
 						placeholder="Usuario"
-						className="border-2 border-slate-700 rounded p-2"
+						className="border-2 border-slate-700 rounded p-2 bg-white"
 						value={usuarioLogin.usuario}
 						onChange={atualizarEstado}
 					/>
@@ -89,14 +89,14 @@ function Login() {
 						id="senha"
 						name="senha"
 						placeholder="Senha"
-						className="border-2 border-slate-700 rounded p-2"
+						className="border-2 border-slate-700 rounded p-2 bg-white"
 						value={usuarioLogin.senha}
 						onChange={atualizarEstado}
 					/>
 				</div>
 				<button
 					type="submit"
-					className="rounded bg-indigo-400 flex justify-center hover:bg-indigo-900 text-white w-1/2 py-2"
+					className="rounded bg-[#453E00] flex justify-center hover:bg-[#262401] text-white w-1/2 py-2"
 				> {isLoading ? (
 							<RotatingLines
 								strokeColor="white"
@@ -108,7 +108,6 @@ function Login() {
 						) : (
 							<span>Entrar</span>
 						)}
-					<span>Entrar</span>
 				</button>
 
 				<hr className="border-slate-800 w-full" />
@@ -116,7 +115,7 @@ function Login() {
 				<p>Ainda não tem uma conta?{' '}
 					<Link
 						to="/usuarios/cadastrar"
-						className="text-indigo-800 hover:underline"
+						className="text-[#453E00] hover:underline"
 					>
 						<span>Cadastre-se</span>
 					</Link>

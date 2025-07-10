@@ -71,7 +71,7 @@ function Cadastro() {
 	return (
 		<>
 			<div
-				className="grid grid-cols-1 lg:grid-cols-2 h-screen 
+				className="grid grid-cols-1 bg-[#FEF8EA] lg:grid-cols-2 h-screen 
             place-items-center font-bold"
 			>
 				<div className="fundoCadastro hidden lg:block"></div>
@@ -89,7 +89,7 @@ function Cadastro() {
 							id="nome"
 							name="nome"
 							placeholder="Nome"
-							className="border-2 border-slate-700 rounded p-2"
+							className="border-2 border-slate-700 rounded p-2 bg-white"
 							value={usuario.nome}
 							onChange={(
 								e: ChangeEvent<HTMLInputElement>
@@ -107,7 +107,7 @@ function Cadastro() {
 							id="usuario"
 							name="usuario"
 							placeholder="Usuario"
-							className="border-2 border-slate-700 rounded p-2"
+							className="border-2 border-slate-700 rounded p-2 bg-white"
 							value={usuario.usuario}
 							onChange={(
 								e: ChangeEvent<HTMLInputElement>
@@ -121,7 +121,7 @@ function Cadastro() {
 							id="foto"
 							name="foto"
 							placeholder="Foto"
-							className="border-2 border-slate-700 rounded p-2"
+							className="border-2 border-slate-700 rounded p-2 bg-white"
 							value={usuario.foto}
 							onChange={(
 								e: ChangeEvent<HTMLInputElement>
@@ -135,7 +135,7 @@ function Cadastro() {
 							id="senha"
 							name="senha"
 							placeholder="Senha"
-							className="border-2 border-slate-700 rounded p-2"
+							className="border-2 border-slate-700 rounded p-2 bg-white"
 							value={usuario.senha}
 							onChange={(
 								e: ChangeEvent<HTMLInputElement>
@@ -151,7 +151,7 @@ function Cadastro() {
 							id="confirmarSenha"
 							name="confirmarSenha"
 							placeholder="Confirmar Senha"
-							className="border-2 border-slate-700 rounded p-2"
+							className="border-2 border-slate-700 rounded p-2 bg-white"
 							value={confirmaSenha}
 							onChange={(
 								e: ChangeEvent<HTMLInputElement>
@@ -161,15 +161,15 @@ function Cadastro() {
 					<div className="flex justify-around w-full gap-8">
 						<button
 							type="reset"
-							className="rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2"
+							className="rounded text-white bg-red-700 hover:bg-red-900 w-1/2 py-2"
               onClick={retornar}
 						>
 							Cancelar
 						</button>
 						<button
 							type="submit"
-							className="rounded text-white bg-indigo-400 
-                           hover:bg-indigo-900 w-1/2 py-2
+							className="rounded text-white bg-[#453E00]
+                           hover:bg-[#262401] w-1/2 py-2
                            flex justify-center"
 						>
 							{isLoading ? 
