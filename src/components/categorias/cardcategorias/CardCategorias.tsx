@@ -3,39 +3,36 @@ import type Categoria from '../../../models/Categoria'
 import { MdDelete } from "react-icons/md"
 import { FaPencilAlt } from "react-icons/fa"
 
-interface CardCategoriaProps{
-    categoria: Categoria, 
-    imagem: string;
+interface CardCategoriaProps {
+    categoria: Categoria;
 }
 
-function CardCategorias({ categoria, imagem }: CardCategoriaProps) {
+function CardCategorias({ categoria }: CardCategoriaProps) {
     return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
-               {categoria.descricao}
-            </header>
-             {imagem ? (
-        <img
-          src={categoria.imagem}
-          alt={`Foto de ${categoria}`}
-          className="w-24 h-24  mx-auto mb-4 object-cover border-2 border-green-800"
-        />
-      ) : (
-        <div className="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white">
-        </div>
-      )}
-            
-            <div className="flex">
-                <Link to={`/editarcategoria/${categoria.id}`} 
-                    className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 
-                        flex items-center justify-center py-2'>
+        <div className='w-65 flex flex-col rounded-2xl overflow-hidden bg-[#FEF8EA] hover:scale-115 hover:shadow-2xl hover:cursor-pointer transition duration-200 '>
+
+            <div className="flex justify-between  px-14 py-3">
+                <Link to={`/editarcategoria/${categoria.id}`}
+                    className=' hover:scale-125 transition duration-200
+                        flex items-center'>
                     <FaPencilAlt />
                 </Link>
 
-                <Link to={`/deletarcategoria/${categoria.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
-                    flex items-center justify-center'>
+                <Link to={`/deletarcategoria/${categoria.id}`} className='hover:scale-125 transition duration-200
+                    flex items-center'>
                     <MdDelete />
                 </Link>
+
+            </div>
+
+            <img
+                src={categoria.imagem}
+                alt={`Foto de ${categoria}`}
+                className="w-60 h-60  mx-auto mb-4 object-cover"
+            />
+
+            <div className='font-bold text-xl flex items-center justify-center'>
+                {categoria.descricao}
             </div>
 
         </div>

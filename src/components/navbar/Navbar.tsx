@@ -19,7 +19,7 @@ function Navbar() {
     }
   return (
     <div>
-         <div className='flex px-15 py-6 justify-between bg-gray-50'>
+         <div className='flex px-15 py-6 justify-between bg-gray-50 shadow-2xl'>
           <div className="pl-10">
             <Link to="/">
               <img
@@ -31,13 +31,13 @@ function Navbar() {
           </div>
 
           <div className="flex justify-between items-center gap-8 text-xl pr-10">
-            <Link to="/" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">Home</Link>
-            <Link to="/categorias" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">Categorias</Link>
-            <Link to="/oportunidades" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">Produtos</Link>
-            <Link to="/sobre" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">Sobre</Link>
-            <Link to="/usuarios" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">Usuários</Link>
+            <Link to="/" className="hover:scale-105 transition-transform cursor-pointer">Home</Link>
+            <Link to="/categorias" className="hover:scale-105 transition-transform cursor-pointer">Categorias</Link>
+            <Link to="/oportunidades" className="hover:scale-105 transition-transform cursor-point">Produtos</Link>
+            <Link to="/sobre" className="hover:scale-105 transition-transform cursor-pointer">Sobre</Link>
+            <Link to="/usuarios" className="hover:scale-105 transition-transform cursor-pointer">Usuários</Link>
             <Link to='#'>
-						<ShoppingCartIcon size={32} weight='bold' className="hover:scale-115 hover:text-yellow-300 transition-transform cursor-pointer"/>
+						<ShoppingCartIcon size={32} weight='bold' className="hover:scale-115 transition-transform cursor-pointer"/>
 					</Link>          
 					{!usuario.token && (
             <Link to='/login'>
@@ -46,18 +46,13 @@ function Navbar() {
           )}
           {usuario.token && (
           <>
-          {usuario.foto ? (
-              <img
-                src={usuario.foto}
-                alt="Foto de perfil"
-                className="h-10 w-10 rounded-full object-cover border-2 border-yellow-400"
-              />
-            ) : (
-              <UserIcon size={32} weight="bold" className="text-gray-700 hover:text-yellow-300 transition-transform cursor-pointer" />
-            )}
+          {
+              <UserIcon size={32} weight="bold" className="text-black hover:scale-110 transition-transform cursor-pointer" />
+           }
+
             <button
               onClick={logout}
-              className="hover:underline text-red-600 font-medium hover:text-yellow-300 transition-transform cursor-pointer"
+              className="hover:underline text-red-600 font-medium transition-transform cursor-pointer"
             >
               Sair
             </button>             
