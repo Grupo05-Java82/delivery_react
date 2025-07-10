@@ -45,23 +45,23 @@ function SobreProjetoPage() {
   ];
 
   return (
-    <div className="">
+    <div className="bg-[#FEF8EA]">
       <section className="flex items-center justify-center font-semibold text-4xl">
-        <h1>Sobre o Connect</h1>
+        <h1>Sobre o Delivery</h1>
       </section>
 
       <article className="px-20 w-full">
 
         <section className="flex pt-2 pb-8 justify-center">
           <p className="font-light text-xl px-6">
-            O CRM Connect é uma plataforma para gerenciar clientes e impulsionar resultados.
+            O Delivery Valor é uma plataforma para pedidos de alimentos.
           </p>
         </section>
 
         <div className="flex justify-center gap-35">
           <img
-            className="rounded-full border-2 hover:scale-105 border-green-800 h-[450px] w-[450px] object-cover hover:shadow-2xl hover:shadow-green-900 transition duration-400"
-            src="https://ik.imagekit.io/gqta2uhtht/CnP_07072025_120113.png?updatedAt=1751900551928"
+            className="rounded-full border-2 hover:scale-105 border-yellow-400 h-[450px] w-[450px] object-cover transition duration-400"
+            src="https://ik.imagekit.io/8h7kfljfc/imgs/deliverylogo.png?updatedAt=1752066792229"
             alt="logo"
           />
 
@@ -70,21 +70,18 @@ function SobreProjetoPage() {
 
             <div className="flex flex-col gap-3">
               <p>
-                <strong>Gestão inteligente de clientes:</strong> Centraliza informações
-                essenciais dos clientes, histórico de interações e dados de contato
-                para um atendimento personalizado.
+                <strong>Cadastro de categorias e produtos:</strong> Permite organizar os itens por tipo, facilitando a navegação e localização dentro do sistema. 
+                O software registra informações como nome, descrição, preço, imagem e disponibilidade de cada produto.
               </p>
 
               <p>
-                <strong>Gestão de oportunidades:</strong> Permite registrar e
-                acompanhar cada etapa do funil de vendas, transformando leads em
-                negócios concretos.
+                <strong>Painel de administração intuitivo:</strong> Oferece uma interface amigável para gerenciar facilmente os produtos, 
+                atualizar preços, adicionar novas categorias e controlar o estoque de forma prática.
               </p>
 
               <p>
-                <strong>Simplicidade, agilidade e eficiência:</strong> Desenvolvido com
-                tecnologias modernas para otimizar o tempo, reduzir tarefas repetitivas
-                e aumentar a produtividade de equipes comerciais e gestores.
+                <strong>Classificação NutriScore integrada:</strong> Avalia automaticamente os produtos com base em sua composição nutricional e atribui uma nota de A a E. 
+                Isso facilita a promoção de escolhas mais saudáveis e aumenta a transparência para o consumidor.
               </p>
             </div>
           </section>

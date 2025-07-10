@@ -19,7 +19,7 @@ function Navbar() {
     }
   return (
     <div>
-         <div className='flex px-15 py-6 justify-between bg-gray-50 shadow-2xl'>
+         <div className='flex px-15 py-6 justify-between bg-gray-50'>
           <div className="pl-10">
             <Link to="/">
               <img

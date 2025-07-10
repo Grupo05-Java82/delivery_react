@@ -11,19 +11,6 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
     return (
         <div className='w-65 flex flex-col rounded-2xl overflow-hidden bg-[#FEF8EA] hover:scale-115 hover:shadow-2xl hover:cursor-pointer transition duration-200 '>
 
-            <div className="flex justify-between  px-14 py-3">
-                <Link to={`/editarcategoria/${categoria.id}`}
-                    className=' hover:scale-125 transition duration-200
-                        flex items-center'>
-                    <FaPencilAlt />
-                </Link>
-
-                <Link to={`/deletarcategoria/${categoria.id}`} className='hover:scale-125 transition duration-200
-                    flex items-center'>
-                    <MdDelete />
-                </Link>
-
-            </div>
 
             <img
                 src={categoria.imagem}
@@ -35,6 +22,20 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
                 {categoria.descricao}
             </div>
 
+
+            <div className="flex justify-between  px-14 py-3">
+                <Link to={`/editarcategoria/${categoria.id}`}
+                    className=' hover:scale-125 transition duration-200
+                        flex items-center hover:text-red-950'>
+                    <FaPencilAlt />
+                </Link>
+
+                <Link to={`/deletarcategoria/${categoria.id}`} className='hover:scale-125 transition duration-200
+                    flex items-center hover:text-red-950'>
+                    <MdDelete />
+                </Link>
+
+            </div>
         </div>
     )
 }
