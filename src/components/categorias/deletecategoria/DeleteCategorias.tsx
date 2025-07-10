@@ -73,47 +73,44 @@ function DeletarCategoria() {
 	}
 
 	return (
-		<div className="container w-1/3 mx-auto">
-			<h1 className="text-4xl text-center my-4">Deletar Categoria</h1>
-			<p className="text-center font-semibold mb-4">
-				Você tem certeza de que deseja apagar a categoria a
-				seguir?
-			</p>
-			<div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-				<header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
-					Categoria
-				</header>
-				<p className="p-8 text-3xl bg-slate-200 h-full">
-					{categoria.descricao}
+		<div className='min-h-screen w-full bg-gradient-to-b from-[#F4BF4F] from-2% to-[#F1EDD2]'>
+
+			<div className="container w-1/3 mx-auto flex flex-col items-center justify-center pt-10 gap-5">
+				<h1 className="text-5xl text-center font-bold my-4">Deletar Categoria</h1>
+				<p className="text-center text-2xl font-semibold mb-4 pb-15">
+					Você tem certeza de que deseja apagar a categoria a
+					seguir?
 				</p>
-				<div className="flex">
-					<button
-						className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
-						onClick={retornar}
-					>
-						Não
-					</button>
-					<button
-						className="w-full text-slate-100 bg-indigo-400 
-                                   hover:bg-indigo-600 flex items-center justify-center"
-						onClick={deletarCategoria}
-					>
-						{/* {isLoading ? (
-							<RotatingLines
-								strokeColor="white"
-								strokeWidth="5"
-								animationDuration="0.75"
-								width="24"
-								visible={true}
-							/>
-						) : (
+				<div className="w-65 h-auto shadow-2xl flex flex-col items-center rounded-2xl border-[#F4BF4F] border overflow-hidden hover:scale-125 transition duration-200 hover:shadow-amber-700">
+
+					<header className="py-2 w-full flex items-center justify-center bg-[#F4BF4F] text-black font-bold text-2xl">
+						{categoria.descricao}
+					</header>
+
+					<p className="p-8 text-3xl bg-[#FEF8EA] h-full border-b border-[#F4BF4F]">
+						<img src={categoria.imagem} alt="foto da categoria" className='w-60 h-60 object-cover' />
+					</p>
+
+					<div className="flex py-2 gap-20 bg-[#F4BF4F] w-full justify-center">
+						<button
+							className="hover:scale-120 hover:cursor-pointer transition duration-150 hover:text-red-600"
+							onClick={retornar}
+						>
+							Não
+						</button>
+
+						<button
+							className="hover:scale-120 hover:cursor-pointer transition duration-150 hover:text-green-700"
+							onClick={deletarCategoria}
+						>
 							<span>Sim</span>
-						)} */}
-                        <span>Sim</span>
-					</button>
+						</button>
+					</div>
+
 				</div>
 			</div>
 		</div>
+
 	)
 }
 export default DeletarCategoria

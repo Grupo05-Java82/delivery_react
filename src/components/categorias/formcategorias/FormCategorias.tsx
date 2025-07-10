@@ -12,7 +12,7 @@ function FormCategoria() {
     const navigate = useNavigate()
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    
+
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria)
 
     const { usuario, handleLogout } = useContext(AuthContext)
@@ -20,30 +20,30 @@ function FormCategoria() {
 
     const { id } = useParams<{ id: string }>()
 
-    async function buscarCategoriaPorId(id: string){
-        try{   
+    async function buscarCategoriaPorId(id: string) {
+        try {
             await buscar(`/categorias/${id}`, setCategoria, {
-                headers: { Authorization: token}
+                headers: { Authorization: token }
             })
-    
-        } catch (error: any){
-            if(error.toString().includes("401")){
+
+        } catch (error: any) {
+            if (error.toString().includes("401")) {
                 handleLogout()
             }
         }
     }
 
-    useEffect(()=>{
-        if (token === ""){
+    useEffect(() => {
+        if (token === "") {
             ToastAlerta("Você precisa estar logado!", 'info')
             navigate("/")
         }
     }, [token])
 
-    useEffect(()=>{
-        if(id !== undefined){
+    useEffect(() => {
+        if (id !== undefined) {
             buscarCategoriaPorId(id)
-        }else{
+        } else {
             setCategoria({
                 id: undefined,
                 descricao: "",
@@ -54,41 +54,41 @@ function FormCategoria() {
     }, [id])
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-		setCategoria({
-			...categoria,
-			[e.target.name]: e.target.value,
-		})
-	}
+        setCategoria({
+            ...categoria,
+            [e.target.name]: e.target.value,
+        })
+    }
 
-    async function gerarNovaCategoria(e: FormEvent<HTMLFormElement>){
-        
+    async function gerarNovaCategoria(e: FormEvent<HTMLFormElement>) {
+
         e.preventDefault()
         setIsLoading(true)
 
-        if (id !== undefined){
-            try{
+        if (id !== undefined) {
+            try {
                 await atualizar("/categorias", categoria, setCategoria, {
                     headers: { Authorization: token }
                 })
 
                 ToastAlerta("A categoria foi atualizado com sucesso!", 'sucesso')
-            }catch(error: any){
-                if(error.toString().includes("401")){
+            } catch (error: any) {
+                if (error.toString().includes("401")) {
                     handleLogout()
                 } else {
                     ToastAlerta("Erro ao atualizar a categoria!", 'erro')
                     console.error(error)
                 }
             }
-        }else{
-            try{
+        } else {
+            try {
                 await cadastrar("/categorias", categoria, setCategoria, {
                     headers: { Authorization: token }
                 })
 
                 ToastAlerta("A categoria foi cadastrado com sucesso!", '')
-            }catch(error: any){
-                if(error.toString().includes("401")){
+            } catch (error: any) {
+                if (error.toString().includes("401")) {
                     handleLogout()
                 } else {
                     ToastAlerta("Erro ao cadastrar a categoria!", 'erro')
@@ -101,59 +101,62 @@ function FormCategoria() {
         retornar()
     }
 
-    function retornar(){
+    function retornar() {
         navigate("/categorias")
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto">
-            <h1 className="text-4xl text-center my-8">
-                {id === undefined ? "Cadastrar Categoria" : "Editar Categoria"}
-            </h1>
 
-            <form 
-                className="w-1/2 flex flex-col gap-4" 
-                onSubmit={gerarNovaCategoria}
-            >
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="descricao">Descrição da Categoria</label>
-                    <input
-                        type="text"
-                        placeholder="Descreva aqui sua categoria"
-                        name='descricao'
-                        className="border-2 border-slate-700 rounded p-2"
-                        value={categoria.descricao}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
-                </div>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="palavraChave">Defina palavras chaves para essa Categoria</label>
-                    <input
-                        type="text"
-                        placeholder="Palavras Chave"
-                        name='palavraChave'
-                        className="border-2 border-slate-700 rounded p-2"
-                        value={categoria.palavraChave}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
-                </div>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="imagem">Defina imagem para essa Categoria</label>
-                    <input
-                        type="text"
-                        placeholder="Link da imagem"
-                        name="imagem"
-                        className="border-2 border-slate-700 rounded p-2"
-                        value={categoria.imagem}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
-                </div>
-                <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                               hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
-                    type="submit">
-                    
-                    {/* {
+        <div className="w-full h-screen bg-gradient-to-b from-[#F4BF4F] from-4% to-[#F1EDD2]">
+            <div className="pt-5 container flex flex-col items-center justify-center mx-auto">
+                
+                <h1 className="text-5xl font-bold text-center my-8">
+                    {id === undefined ? "Cadastrar Categoria" : "Editar Categoria"}
+                </h1>
+
+                <form
+                    className="w-1/2 flex flex-col gap-4"
+                    onSubmit={gerarNovaCategoria}
+                >
+                    <div className="flex flex-col gap-2 justify-center items-center">
+                        <label htmlFor="descricao">Descrição da Categoria</label>
+                        <input
+                            type="text"
+                            placeholder="Descreva aqui sua categoria"
+                            name='descricao'
+                            className="rounded p-2 bg-white w-80"
+                            value={categoria.descricao}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2 justify-center items-center">
+                        <label htmlFor="palavraChave">Defina palavras chaves para essa Categoria</label>
+                        <input
+                            type="text"
+                            placeholder="Palavras Chave"
+                            name='palavraChave'
+                            className="rounded p-2 bg-white w-80"
+                            value={categoria.palavraChave}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2 justify-center items-center pb-10">
+                        <label htmlFor="imagem">Defina imagem para essa Categoria</label>
+                        <input
+                            type="text"
+                            placeholder="Link da imagem"
+                            name="imagem"
+                            className="rounded p-2 bg-white w-80"
+                            value={categoria.imagem}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        />
+                    </div>
+                    <button
+                        className="rounded-2xl text-white bg-orange-900 
+                               hover:cursor-pointer hover:scale-110 hover:shadow-2xl transition duration-300 px-8 py-3 mx-auto flex justify-center"
+                        type="submit">
+
+                        {/* {
                         isLoading ? 
 
                         <RotatingLines
@@ -167,10 +170,12 @@ function FormCategoria() {
                         <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
                         
                     } */}
-                    <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
-                </button>
-            </form>
+                        <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
+                    </button>
+                </form>
+            </div>
         </div>
+
     );
 }
 

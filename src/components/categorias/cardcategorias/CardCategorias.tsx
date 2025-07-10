@@ -31,7 +31,7 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
                 className="w-60 h-60  mx-auto mb-4 object-cover"
             />
 
-            <div className='font-bold text-xl flex items-center justify-center'>
+            <div className='font-bold text-xl flex items-center justify-center pb-2'>
                 {categoria.descricao}
             </div>
 
