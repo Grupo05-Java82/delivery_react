@@ -14,11 +14,11 @@ body {
     transform: translateY(0px); /* Posição inicial e final */
   }
   50% {
-    transform: translateY(-15px); /* Posição mais alta. Ajuste o valor para mais ou menos flutuação. */
+    transform: translateY(-20px); /* Posição mais alta. Ajuste o valor para mais ou menos flutuação. */
   }
 }
 
 /* Classe CSS para aplicar a animação */
 .animate-float-custom {
-  animation: float 3s ease-in-out infinite; /* 3 segundos de duração, suave, repetição infinita */
+  animation: float 4s ease-in-out infinite; /* 3 segundos de duração, suave, repetição infinita */
 }

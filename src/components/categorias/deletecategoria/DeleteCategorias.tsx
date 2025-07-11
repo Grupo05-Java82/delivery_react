@@ -20,9 +20,7 @@ function DeletarCategoria() {
 
 	async function buscarCategoriaPorId(id: string) {
 		try {
-			await buscar(`/categorias/${id}`, setCategoria, {
-				headers: { Authorization: token },
-			})
+			await buscar(`/categorias/${id}`, setCategoria)
 		} catch (error: any) {
 			if (error.toString().includes('401')) {
 				handleLogout()
