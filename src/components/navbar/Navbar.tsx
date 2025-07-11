@@ -46,7 +46,7 @@ function Navbar() {
           </Link> */}
 
           <Link to="#">
-            <ShoppingCartIcon size={32} weight='bold' className="hover:scale-115 hover:text-yellow-300 transition-transform cursor-pointer" />
+            <ShoppingCartIcon size={32} weight='bold' className="hover:scale-115 hover:text-[#453E00] transition-transform cursor-pointer" />
           </Link>
 
           {!usuario.token && (

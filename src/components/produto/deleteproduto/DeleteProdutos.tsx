@@ -20,9 +20,7 @@ function DeletarProduto() {
 
 	async function buscarProdutoPorId(id: string) {
 		try {
-			await buscar(`/produtos/${id}`, setProduto, {
-				headers: { Authorization: token },
-			});
+			await buscar(`/produtos/${id}`, setProduto);
 		} catch (error: any) {
 			if (error.toString().includes('401')) {
 				handleLogout();
