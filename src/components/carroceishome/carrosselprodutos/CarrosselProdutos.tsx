@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
-import { DNA } from "react-loader-spinner";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 import CardProdutoCarrossel from "../cardprodutocarrossel/CardProdutoCarrssel";
 import { buscarTodosProdutos } from "../../../services/Service";
 import type Produto from "../../../models/Produto";
+import Loader from "../../ui/Loader";
 
 export default function CarrosselProdutos() {
   const [produtos, setProdutos] = useState<{ imagem: string; titulo: string; preco: string }[]>([]);
@@ -59,33 +61,23 @@ export default function CarrosselProdutos() {
   }, []);
 
   if (isLoading) {
-    return (
-      <div className="w-full flex justify-center py-10">
-        <DNA
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperClass="dna-wrapper"
-        />
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
     <motion.div
-      className="w-full max-w-screen-xl relative"
+      className="w-full max-w-screen-xl relative mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Botões fora do carrossel */}
+      {/* Botões de navegação */}
       <div className="absolute -left-14 top-1/2 z-10 -translate-y-1/2">
         <button
           ref={prevRef}
           className="bg-gray-100 hover:bg-gray-300 rounded-full p-3 shadow-md"
         >
-          ⬅
+          <IoIosArrowBack />
         </button>
       </div>
 
@@ -94,10 +86,11 @@ export default function CarrosselProdutos() {
           ref={nextRef}
           className="bg-gray-100 hover:bg-gray-300 rounded-full p-3 shadow-md"
         >
-          ➡
+          <IoIosArrowForward />
         </button>
       </div>
 
+      {/* Carrossel com espaçamento aumentado */}
       <Swiper
         modules={[Navigation, Pagination]}
         navigation={{
@@ -105,27 +98,26 @@ export default function CarrosselProdutos() {
           nextEl: nextRef.current,
         }}
         onInit={(swiper) => {
-          // Forçar reatribuição após refs estarem disponíveis
           (swiper.params.navigation as any).prevEl = prevRef.current;
           (swiper.params.navigation as any).nextEl = nextRef.current;
           swiper.navigation.init();
           swiper.navigation.update();
         }}
         pagination={{ clickable: true }}
-        spaceBetween={10}
+        spaceBetween={60} // Espaçamento padrão aumentado
         breakpoints={{
           320: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
-          1280: { slidesPerView: 4 },
-          1536: { slidesPerView: 5 },
-          1920: { slidesPerView: 6 },
-          2560: { slidesPerView: 7 },
+          1280: { slidesPerView: 4},
+          // 1536: { slidesPerView: 5, spaceBetween: 60 },
+          // 1920: { slidesPerView: 6, spaceBetween: 60 },
+          // 2560: { slidesPerView: 7, spaceBetween: 60 },
         }}
-        className="py-10"
+        className="py-10 px-4" // Adicionado padding horizontal
       >
         {produtos.map((produto, i) => (
-          <SwiperSlide key={i} className="flex justify-center">
+          <SwiperSlide key={i} className="flex justify-center items-center p-5">
             <CardProdutoCarrossel {...produto} />
           </SwiperSlide>
         ))}

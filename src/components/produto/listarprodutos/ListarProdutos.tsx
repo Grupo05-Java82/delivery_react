@@ -1,10 +1,10 @@
 import { ToastAlerta } from "../../../utils/ToastAlerta";
-import { DNA } from "react-loader-spinner";
 import CardProduto from "../cardproduto/CardProduto";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import { buscarTodosProdutos } from "../../../services/Service";
 import type Produto from "../../../models/Produto";
+import Loader from "../../ui/Loader";
 
 function ListarProdutos() {
   const [searchParams] = useSearchParams();
@@ -56,13 +56,7 @@ function ListarProdutos() {
 
   if (isLoading) {
     return (
-      <DNA
-        visible={true}
-        height="200"
-        width="200"
-        ariaLabel="dna-loading"
-        wrapperClass="dna-wrapper mx-auto"
-      />
+      <Loader />
     );
   }
 

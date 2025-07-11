@@ -29,21 +29,21 @@ function Navbar() {
         </div>
 
         <div className="flex justify-between items-center gap-8 text-xl pr-10">
-          <Link to="/" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">
+          <Link to="/" className="hover:scale-105 hover:text-[#453E00] transition-transform cursor-pointer">
             Home
           </Link>
-          <Link to="/categorias" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">
+          <Link to="/categorias" className="hover:scale-105 hover:text-[#453E00] transition-transform cursor-pointer">
             Categorias
           </Link>
-          <Link to="/produtos" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">
+          <Link to="/produtos" className="hover:scale-105 hover:text-[#453E00] transition-transform cursor-pointer">
             Produtos
           </Link>
-          <Link to="/sobre" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">
+          <Link to="/sobre" className="hover:scale-105 hover:text-[#453E00] transition-transform cursor-pointer">
             Sobre
           </Link>
-          <Link to="/usuarios" className="hover:scale-105 hover:text-yellow-300 transition-transform cursor-pointer">
+          {/* <Link to="/usuarios" className="hover:scale-105 hover:text-[#453E00] transition-transform cursor-pointer">
             Usuários
-          </Link>
+          </Link> */}
 
           <Link to="#">
             <ShoppingCartIcon size={32} weight='bold' className="hover:scale-115 hover:text-yellow-300 transition-transform cursor-pointer" />

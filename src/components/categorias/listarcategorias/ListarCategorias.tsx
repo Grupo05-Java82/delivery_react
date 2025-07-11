@@ -1,8 +1,8 @@
 import type Categoria from "../../../models/Categoria";
 import CardCategorias from "../cardcategorias/CardCategorias";
 import { buscar } from "../../../services/Service";
-import { DNA } from "react-loader-spinner";
 import { useEffect, useState } from "react";
+import Loader from "../../ui/Loader";
 
 function ListarCategorias() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -24,14 +24,7 @@ function ListarCategorias() {
         <h2 className="text-4xl font-bold text-center text-orange-900 mb-10">
           Categorias disponíveis
         </h2>
-        {isLoading && (
-          <DNA
-            visible={true}
-            height="200"
-            width="200"
-            ariaLabel="dna-loading"
-            wrapperClass="mx-auto"
-          />
+        {isLoading && (<Loader />
         )}
         {!isLoading && categorias.length === 0 && (
           <p className="text-2xl text-center text-gray-600 mt-10">

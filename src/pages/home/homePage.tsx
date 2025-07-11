@@ -38,9 +38,9 @@ export default function Home() {
       </div>
 
       {/* Carrossel de Produtos */}
-      <div className="w-full max-w-screen-xl px-4 flex flex-col items-center justify-center">
+      <div className="w-full max-w-screen-xl flex flex-col items-center justify-center">
         <h2 className="text-4xl font-poppins font-semibold text-center text-black/60 py-4">Peça aqui!</h2>
-        <CarrosselProdutos />
+          <CarrosselProdutos />
       </div>
 
     </div>

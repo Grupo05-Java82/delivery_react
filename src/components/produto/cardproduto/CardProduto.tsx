@@ -14,7 +14,7 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
   const isDono = typeof produto.usuario !== 'number' && usuario?.id === produto.usuario.id;
 
   return (
-    <div className="h-80 w-2/3 bg-white p-3 rounded-xl flex flex-col justify-between items-start gap-1.5 shadow-md hover:shadow-lg transition-all relative">
+    <div className="h-80 w-[15rem] bg-white p-3 rounded-xl flex flex-col justify-center items-start gap-1.5 shadow-md hover:shadow-lg transition-all relative">
 
       {/* Imagem do produto */}
       <img className="w-56 h-48 object-cover rounded-xl" src={produto.imagem || 'https://placehold.co/231x193'} alt={produto.nome} />
@@ -33,7 +33,7 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
       {/* Botão de carrinho de compras */}
       <button
         onClick={() => console.log('Adicionar ao carrinho (futuro)')}
-        className="absolute top-3 right-3 bg-green-600 hover:bg-green-700 text-white p-2 rounded-full shadow transition"
+        className="absolute top-3 right-3 hover:cursor-pointer bg-green-600 hover:bg-green-700 text-white p-2 rounded-full shadow transition"
         title="Adicionar ao carrinho"
       >
         <ShoppingCartSimple size={20} weight="bold" />
