@@ -23,7 +23,7 @@ export default function Home() {
 
           <section className="pt-6">
             <img
-              className="w-[300px] md:w-[400px] lg:w-[50vh] h-auto animate-float-custom"
+              className="w-[400px] md:w-[500px] lg:w-[50vh] h-auto animate-float-custom"
               src="https://ik.imagekit.io/gqta2uhtht/um-delicioso-hamburguer-no-estudio-removebg-preview%201%20(1).png?updatedAt=1752104960964"
               alt="hamburguer"
             />

@@ -50,9 +50,7 @@ function FormProduto() {
 
   async function buscarCategorias() {
     try {
-      await buscar("/categorias", setCategorias, {
-        headers: { Authorization: token },
-      });
+      await buscar("/categorias", setCategorias);
     } catch (error: any) {
       if (error.toString().includes("401")) handleLogout();
     }
@@ -60,9 +58,7 @@ function FormProduto() {
 
   async function buscarProdutoPorId(id: string) {
     try {
-      await buscar(`/produtos/${id}`, setProduto, {
-        headers: { Authorization: token },
-      });
+      await buscar(`/produtos/${id}`, setProduto);
     } catch (error: any) {
       if (error.toString().includes("401")) handleLogout();
     }
