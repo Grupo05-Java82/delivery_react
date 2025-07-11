@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
+import Sobre from "./pages/sobre/Sobre";
+import Produtos from "./pages/produtos/Produtos";
+import Home from "./pages/home/homePage";
+import Footer from "./components/footer/Footer";
+import { AuthProvider } from "./contexts/AuthContext";
+import Login from "./pages/login/Login";
+import { ToastContainer } from "react-toastify";
+import Cadastro from "./pages/cadastro/Cadastro";
+import FormCategoria from "./components/categorias/formcategorias/FormCategorias";
+import DeletarCategoria from "./components/categorias/deletecategoria/DeleteCategorias";
+import RotaPrivada from "./contexts/RotaPrivada";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import Usuarios from "./pages/usuarios/Usuarios";
+import Categorias from "./pages/categorias/Categorias";
+import FormProduto from "./components/produto/formprodutos/FormProdutos";
+import DeletarProduto from "./components/produto/deleteproduto/DeleteProdutos";
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    
+    <GoogleOAuthProvider clientId="323883270092-ke6bscn6njau06ssposa02vtsto0rdv7.apps.googleusercontent.com">
+    <AuthProvider>
+      <ToastContainer />
+      <BrowserRouter>
+        <Navbar />
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-1">
+            <Routes>
+              {/* Rotas públicas */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro" element={<Cadastro />} />
+              <Route path="/usuarios/cadastrar" element={<Cadastro />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/produtos" element={<Produtos />} />
+              <Route path="/categorias" element={<Categorias />} />
+              <Route path="/sobre" element={<Sobre />} />
+
+              {/* Rotas protegidas (somente usuário logado) */}
+              <Route path="/usuarios"
+                element={<RotaPrivada>
+                  <Usuarios />
+                  </RotaPrivada>  
+                } />
+
+              <Route
+                path="/cadastrarcategoria"
+                element={
+                  <RotaPrivada>
+                    <FormCategoria />
+                  </RotaPrivada>
+                }
+              />
+              <Route
+                path="/editarcategoria/:id"
+                element={
+                  <RotaPrivada>
+                    <FormCategoria />
+                  </RotaPrivada>
+                }
+              />
+              <Route path="/deletarcategoria/:id"element={<RotaPrivada><DeletarCategoria /></RotaPrivada>}/>
+
+              {/* Se tiver: */}
+              <Route path="/cadastrarproduto" element={<RotaPrivada><FormProduto /></RotaPrivada>} /> 
+              <Route path="/editarproduto/:id" element={<RotaPrivada><FormProduto /></RotaPrivada>} />
+              <Route path="/editarproduto/:id" element={<RotaPrivada><FormProduto /></RotaPrivada>} />
+              <Route path="/deletarproduto/:id" element={<RotaPrivada><DeletarProduto /></RotaPrivada>} />
+
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
+    </GoogleOAuthProvider>
+  );
 }
 
-export default App
+export default App;
